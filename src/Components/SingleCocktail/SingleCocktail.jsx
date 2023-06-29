@@ -13,16 +13,15 @@ const SingleCocktail = ({productSection, setProductSection}) => {
     const onHandleClick = () => setProductSection("home");
     
     return (
-            <div >
+            <div className='single_cocktail'>
                 <img src={cocktail.strDrinkThumb} alt={cocktail.strDrink} />
                 <div >
-                    <div >
-                        <h1>{cocktail.strDrink}</h1>
-                        <p>{cocktail.strAlcoholic}</p>
+                    <div className='cocktail_type' >
+                        <h1 className='cocktail_name' >{cocktail.strDrink}</h1>
+                        <p className='cocktail_type' >{cocktail.strAlcoholic}</p>
                     </div>
-                    <p>❤️</p>
                 </div>
-                <ul >
+                <ul className='ingredients_list' >
                     <li>{cocktail.strIngredient1}</li>
                     <li>{cocktail.strIngredient2}</li>
                     <li>{cocktail.strIngredient3}</li>
