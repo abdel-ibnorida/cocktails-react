@@ -40,6 +40,7 @@ const Home = ({ productSection, setProductSection ,cocktailName, setCocktailName
             <button onClick={onHandleAlcolClick}>Alcoholic</button>
             <button onClick={onHandleNonAlcolClick}>Analcoholic</button>
             <div className='cocktail_list'>
+
                 {
                     cocktails.drinks?.map(drink => {
                         return   <div className='cocktail_card'>
@@ -50,6 +51,8 @@ const Home = ({ productSection, setProductSection ,cocktailName, setCocktailName
                         </div>
                     })
                 }
+   
+
             </div>
         </div>
     )
