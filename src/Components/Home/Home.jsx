@@ -26,20 +26,20 @@ const Home = ({ productSection, setProductSection }) => {
             <button onClick={onHandleNonAlcolClick}>Analcoholic</button>
             <div className='cocktail_list'>
                 <div className='cocktail_card'>
-                    <img src={cocktails?.drinks[0].strDrinkThumb}></img>
-                    <p>{cocktails?.drinks[0].strDrink}</p>
+                    <img src={cocktails.drinks[1].strDrinkThumb}></img>
+                    <p>{cocktails.drinks[1].strDrink}</p>
                 </div>
                 <div className='cocktail_card'>
-                    <img src={cocktails?.drinks[2].strDrinkThumb}></img>
-                    <p>{cocktails?.drinks[2].strDrink}</p>
+                    <img src={cocktails.drinks[2].strDrinkThumb}></img>
+                    <p>{cocktails.drinks[2].strDrink}</p>
                 </div>
                 <div className='cocktail_card'>
-                    <img src={cocktails?.drinks[5].strDrinkThumb}></img>
-                    <p>{cocktails?.drinks[5].strDrink}</p>
+                    <img src={cocktails.drinks[5].strDrinkThumb}></img>
+                    <p>{cocktails.drinks[5].strDrink}</p>
                 </div>
                 <div className='cocktail_card'>
-                    <img src={cocktails?.drinks[15].strDrinkThumb}></img>
-                    <p>{cocktails?.drinks[15].strDrink}</p>
+                    <img src={cocktails.drinks[15].strDrinkThumb}></img>
+                    <p>{cocktails.drinks[15].strDrink}</p>
                 </div>
             </div>
         </div>
