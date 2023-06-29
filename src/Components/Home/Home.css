@@ -1,6 +1,7 @@
 .cocktail_list {
     display: flex;
     flex-wrap: wrap;
+    gap: 50px;
 }
 .cocktail_card {
     width: 180px;

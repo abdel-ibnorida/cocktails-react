@@ -6,16 +6,18 @@ import Home from './Components/Home';
 
 function App() {
   const [productSection, setProductSection] = useState("");
+  const [cocktailName, setCocktailName] = useState("");
 
   const onRender = () => {
     switch (productSection) {
       case "home":
         return (
           <div>
-            home
             <Home
               productSection={productSection}
-              setProductSection={setProductSection} 
+              setProductSection={setProductSection}
+              cocktailName={cocktailName}
+              setCocktailName={setCocktailName}
             />
           </div>
         )
@@ -24,6 +26,8 @@ function App() {
           <SingleCocktail
             productSection={productSection}
             setProductSection={setProductSection}
+            cocktailName={cocktailName}
+            setCocktailName={setCocktailName}
           />
         );
     }

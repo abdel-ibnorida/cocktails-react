@@ -1,15 +1,14 @@
 import './SingleCocktail.css'
 import { useState, useEffect } from "react";
 
-const SingleCocktail = ({productSection, setProductSection}) => {
+const SingleCocktail = ({productSection, setProductSection, cocktailName, setCocktailName}) => {
     const [cocktail, setCokctail] = useState({});
 
     useEffect(() => {
-        fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita')
+        fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=' + cocktailName)
         .then(res => res.json())
         .then(data => setCokctail(data.drinks[0]))
     }, []);
-    console.log(cocktail);
     const onHandleClick = () => setProductSection("home");
     
     return (
