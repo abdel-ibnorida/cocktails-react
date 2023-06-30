@@ -7,7 +7,7 @@ const Home = ({ setProductSection, setCocktailName }) => {
     const [typeDrink, setTypeDrink] = useState("Alcoholic");
     const [cocktailsByType, setCokctailsByType] = useState([]);
     const [searchCocktail, setSearchCokctail] = useState([]);
-    const [ingredient, setIngredient] = useState("");
+    const [filters, setFilters] = useState([]);
 
     let url = 'https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=' + typeDrink;
     useEffect(() => {
@@ -42,11 +42,16 @@ const Home = ({ setProductSection, setCocktailName }) => {
                     onChange={onHandleChange} />
             </form>
             <div>
-                <Filters/>
-                <CocktailsByIngredient ingredient="rum"/>
-                <CocktailsByIngredient ingredient="whiskey"/>            
-                <CocktailsByIngredient ingredient="vodka"/>
-                <CocktailsByIngredient ingredient="gin"/>
+                <Filters setFilters={setFilters}/>
+                
+                {
+                    filters?.map(filter => {
+                        if (filter !== false) {
+                             return <CocktailsByIngredient ingredient={filter}/>
+                        }
+                        } 
+                    )
+                }
             </div>
             <div className='drinks_by_type'>
 
