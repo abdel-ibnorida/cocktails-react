@@ -14,9 +14,7 @@ function App() {
         return (
           <div>
             <Home
-              productSection={productSection}
               setProductSection={setProductSection}
-              cocktailName={cocktailName}
               setCocktailName={setCocktailName}
             />
           </div>
@@ -24,10 +22,8 @@ function App() {
       case "":
         return (
           <SingleCocktail
-            productSection={productSection}
             setProductSection={setProductSection}
             cocktailName={cocktailName}
-            setCocktailName={setCocktailName}
           />
         );
     }

@@ -1,7 +1,7 @@
 import './SingleCocktail.css'
 import { useState, useEffect } from "react";
 
-const SingleCocktail = ({productSection, setProductSection, cocktailName, setCocktailName}) => {
+const SingleCocktail = ({ setProductSection, cocktailName}) => {
     const [cocktail, setCokctail] = useState({});
 
     useEffect(() => {

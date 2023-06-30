@@ -1,7 +1,7 @@
 import './Home.css'
 import { useEffect, useState } from "react";
 
-const Home = ({ productSection, setProductSection ,cocktailName, setCocktailName}) => {
+const Home = ({ setProductSection , setCocktailName}) => {
     const [typeDrink, setTypeDrink] = useState("Alcoholic");
     const [cocktails, setCokctails] = useState([]);
     const [searchCocktail, setSearchCokctail] = useState([]);
@@ -21,21 +21,22 @@ const Home = ({ productSection, setProductSection ,cocktailName, setCocktailName
         setTypeDrink("Non_Alcoholic")
     }
     const onHandleChange = (e) => {
-        console.log(e.target.value);
         setSearchCokctail(e.target.value);
     }
 
     const onHandelSubmit = (e) => {
         e.preventDefault();
         setCocktailName(searchCocktail);
-        console.log(cocktailName);
-        console.log('ricerca');
         setProductSection("");
     }
     return (
         <div>
             <form onSubmit={onHandelSubmit}>
-                <input type="text" placeholder='cerca il tuo drink' onChange={onHandleChange} />
+                <input 
+                    type="text" 
+                    placeholder='cerca il tuo drink'
+                    value={searchCocktail}
+                    onChange={onHandleChange} />
             </form>
             <button onClick={onHandleAlcolClick}>Alcoholic</button>
             <button onClick={onHandleNonAlcolClick}>Analcoholic</button>
