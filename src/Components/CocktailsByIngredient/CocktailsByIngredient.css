@@ -1,0 +1,9 @@
+.ingredient_name {
+    border: 3px solid black;
+    font-size: x-large;
+}
+.drinks_by_ingredient {
+    
+    height: 400px;
+    overflow-x: auto;
+}

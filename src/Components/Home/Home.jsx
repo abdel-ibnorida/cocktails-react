@@ -1,16 +1,19 @@
+import CocktailsByIngredient from '../CocktailsByIngredient';
+import Filters from '../Filters';
 import './Home.css'
 import { useEffect, useState } from "react";
 
-const Home = ({ setProductSection , setCocktailName}) => {
+const Home = ({ setProductSection, setCocktailName }) => {
     const [typeDrink, setTypeDrink] = useState("Alcoholic");
-    const [cocktails, setCokctails] = useState([]);
+    const [cocktailsByType, setCokctailsByType] = useState([]);
     const [searchCocktail, setSearchCokctail] = useState([]);
+    const [ingredient, setIngredient] = useState("");
 
     let url = 'https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=' + typeDrink;
     useEffect(() => {
         fetch(url)
             .then(res => res.json())
-            .then(data => setCokctails(data))
+            .then(data => setCokctailsByType(data))
     }, [typeDrink]);
 
 
@@ -30,32 +33,42 @@ const Home = ({ setProductSection , setCocktailName}) => {
         setProductSection("");
     }
     return (
-        <div>
+        <>
             <form onSubmit={onHandelSubmit}>
-                <input 
-                    type="text" 
+                <input
+                    type="text"
                     placeholder='cerca il tuo drink'
                     value={searchCocktail}
                     onChange={onHandleChange} />
             </form>
-            <button onClick={onHandleAlcolClick}>Alcoholic</button>
-            <button onClick={onHandleNonAlcolClick}>Analcoholic</button>
-            <div className='cocktail_list'>
-
-                {
-                    cocktails.drinks?.map(drink => {
-                        return   <div className='cocktail_card'>
-                            <img src={drink.strDrinkThumb}></img>
-                            <p>
-                                {drink.strDrink}
-                            </p>
-                        </div>
-                    })
-                }
-   
-
+            <div>
+                <Filters/>
+                <CocktailsByIngredient ingredient="rum"/>
+                <CocktailsByIngredient ingredient="whiskey"/>            
+                <CocktailsByIngredient ingredient="vodka"/>
+                <CocktailsByIngredient ingredient="gin"/>
             </div>
-        </div>
+            <div className='drinks_by_type'>
+
+                <button onClick={onHandleAlcolClick}>Alcoholic</button>
+                <button onClick={onHandleNonAlcolClick}>Analcoholic</button>
+                <div className='cocktail_list'>
+
+                    {
+                        cocktailsByType.drinks?.map(drink => {
+                            return <div className='cocktail_card'>
+                                <img src={drink.strDrinkThumb}></img>
+                                <p>
+                                    {drink.strDrink}
+                                </p>
+                            </div>
+                        })
+                    }
+
+
+                </div>
+            </div>
+        </>
     )
 }
 
